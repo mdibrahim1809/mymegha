@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Kuchupuchu ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Poppins,sans-serif;background:#050816;color:#fff;overflow-x:hidden}
+.sky{position:fixed;inset:0;background:linear-gradient(#050816,#111936);z-index:-3}
+.moon{position:fixed;top:60px;right:40px;width:100px;height:100px;border-radius:50%;background:#fff6bf;box-shadow:0 0 50px #fff6bf;z-index:-2}
+.star{position:fixed;background:#fff;border-radius:50%;animation:twinkle 4s infinite}
+@keyframes twinkle{50%{opacity:.2}}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.glass,.card{background:rgba(255,255,255,.08);backdrop-filter:blur(10px);border-radius:24px;border:1px solid rgba(255,255,255,.12)}
+.glass{max-width:800px;padding:40px;text-align:center}
+h1{font-family:Cinzel,serif;font-size:3rem}
+.pink{color:#ff9ed2}
+button{margin-top:25px;padding:14px 28px;border:none;border-radius:40px;background:#ff6fb5;color:#fff;cursor:pointer}
+#content{display:none;max-width:900px;margin:auto;padding:20px}
+.card{padding:25px;margin:20px 0}
+.card h2{color:#ffb6dd;margin-bottom:12px}
+.countdown{display:flex;gap:10px;flex-wrap:wrap}
+.box{background:rgba(255,255,255,.08);padding:12px;border-radius:12px;min-width:90px;text-align:center}
+.footer{text-align:center;padding:30px}
+</style>
+</head>
+<body>
+<div class="sky"></div><div class="moon"></div>
+<audio id="bgMusic" loop>
+<source src="https://raw.githubusercontent.com/mdibrahim1809/mymegha/main/audio.mp3" type="audio/mpeg">
+</audio>
+
+<section class="hero" id="hero">
+<div class="glass">
+<h1>To My <span class="pink">Kuchupuchu ❤️</span></h1>
+<p>First online talk: 25 August, 8:25 PM<br>First physical meet: 27 August</p>
+<button onclick="enterUniverse()">Enter Our Universe ✨</button>
+</div>
+</section>
+
+<div id="content">
+<div class="card">
+<h2>🌌 Our Story</h2>
+<p>25 August, 8:25 PM. A conversation started. On 27 August we met in person. Since then, ordinary moments became unforgettable memories.</p>
+</div>
+
+<div class="card">
+<h2>✨ Favorite Memory</h2>
+<p>That day at Anti's house. You smiled. You leaned on me. A small moment that became one of my favorite memories forever.</p>
+</div>
+
+<div class="card">
+<h2>❤️ Together Since</h2>
+<div class="countdown">
+<div class="box"><div id="days">0</div><small>Days</small></div>
+<div class="box"><div id="hours">0</div><small>Hours</small></div>
+<div class="box"><div id="minutes">0</div><small>Minutes</small></div>
+<div class="box"><div id="seconds">0</div><small>Seconds</small></div>
+</div>
+</div>
+
+<div class="card">
+<h2>💌 Message</h2>
+<p>Stay with me forever. Thank you for staying with me through everything. ❤️</p>
+</div>
+
+<div class="card">
+<h2>💍 1 November</h2>
+<p>Our special date.</p>
+</div>
+
+<div class="footer">Made with Love by Your Sanu ❤️</div>
+</div>
+
+<script>
+for(let i=0;i<35;i++){
+ let s=document.createElement('div');
+ s.className='star';
+ let z=Math.random()*3+1;
+ s.style.width=z+'px';s.style.height=z+'px';
+ s.style.left=Math.random()*100+'vw';
+ s.style.top=Math.random()*100+'vh';
+ document.body.appendChild(s);
+}
+
+function enterUniverse(){
+ document.getElementById('hero').style.display='none';
+ document.getElementById('content').style.display='block';
+ document.getElementById('bgMusic').play().catch(()=>{});
+}
+
+function updateTimer(){
+ const start=new Date('2025-08-25T20:25:00');
+ const now=new Date();
+ const diff=Math.floor((now-start)/1000);
+ document.getElementById('days').textContent=Math.floor(diff/86400);
+ document.getElementById('hours').textContent=Math.floor(diff%86400/3600);
+ document.getElementById('minutes').textContent=Math.floor(diff%3600/60);
+ document.getElementById('seconds').textContent=diff%60;
+}
+setInterval(updateTimer,1000);updateTimer();
+</script>
+</body>
+</html>
